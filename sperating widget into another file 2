@@ -1,0 +1,70 @@
+main file
+
+import 'package:flutter/material.dart';
+import 'package:basics/gradient.dart';
+
+
+void main() {
+  runApp(
+    const MaterialApp(
+      // For creating a frame of app
+      home: Scaffold(
+          // This is used to change the background
+          body: GradientConatiner()),
+    ),
+  );
+}
+
+
+another file
+
+import 'package:flutter/material.dart';
+import 'package:basics/text.dart';
+
+const startAligment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
+
+//  we can use var instead of const but
+// if we use var we can reasign the value 
+//thats why final and const is used
+
+class GradientConatiner extends StatelessWidget {
+  // GradientConatiner({key}): super(key: key);
+  const GradientConatiner({super.key});
+  @override
+  Widget build(context) {
+    
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 167, 255, 170),
+          Color.fromARGB(255, 167, 255, 170)
+        ], begin: startAligment, end: endAlignment),
+      ),
+      child: const Center(
+          // This is used to center the text
+          child: Textone()),
+    );
+  }
+}
+
+
+
+another file
+
+import 'package:flutter/material.dart';
+
+class Textone extends StatelessWidget {
+  const Textone({super.key});
+
+  @override
+  Widget build(context) {
+    return const Text(
+      "EcoStride",
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 28,
+      ),
+    );
+  }
+}
