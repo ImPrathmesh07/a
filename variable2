@@ -1,0 +1,99 @@
+main file'
+
+
+import 'package:flutter/material.dart';
+import 'package:basics/gradient.dart';
+
+void main() {
+  runApp(
+    const MaterialApp(
+      // For creating a frame of app
+      home: Scaffold(
+          // This is used to change the background
+          body: GradientConatiner(Color.fromARGB(255, 167, 255, 170),
+              Color.fromARGB(255, 167, 255, 170))),
+    ),
+  );
+}
+
+
+gradient file
+
+import 'package:flutter/material.dart';
+import 'package:basics/text.dart';
+
+const startAligment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
+
+//  we can use var instead of const but
+// if we use var we can reasign the value
+//thats why final and const is used
+
+class GradientConatiner extends StatelessWidget {
+  // GradientConatiner({key}): super(key: key);
+  const GradientConatiner(this.color1, this.color2, {super.key});
+
+  final Color color1;
+  final Color color2;
+
+  @override
+  Widget build(context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [color1, color2],
+          begin: startAligment,
+          end: endAlignment,
+        ),
+      ),
+      child: const Center(
+        child: Textone('EcoStride'),
+      ),
+    );
+  }
+}
+
+
+// class GradientContainer extends StatelessWidget {
+//   const GradientContainer({super.key, required this.colors});
+
+//   final List<Color> colors;
+
+//   @override
+//   Widget build(context) {
+//     return Container(
+//       decoration: BoxDecoration(
+//         gradient: LinearGradient(
+//           colors: colors,
+//           begin: startAlignment,
+//           end: endAlignment,
+//         ),
+//       ),
+//       child: const Center(
+//         child: StyledText('Hello World!'),
+//       ),
+//     );
+//   }
+// }
+
+
+text file
+
+import 'package:flutter/material.dart';
+
+class Textone extends StatelessWidget {
+  const Textone(this.text, {super.key});
+
+  final String text;
+
+  @override
+  Widget build(context) {
+    return Text(
+      text,
+      style: const TextStyle(
+        color: Colors.black,
+        fontSize: 28,
+      ),
+    );
+  }
+}
