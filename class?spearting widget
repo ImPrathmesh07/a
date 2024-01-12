@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    const MaterialApp(
+      // For creating a frame of app
+      home: Scaffold(
+          // This is used to change the background
+          body: GradientConatiner()),
+    ),
+  );
+}
+
+class GradientConatiner extends StatelessWidget {
+  // GradientConatiner({key}): super(key: key);
+  const GradientConatiner({super.key});
+  @override
+  Widget build(context) {
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 167, 255, 170),
+          Color.fromARGB(255, 167, 255, 170)
+        ], begin: Alignment.bottomLeft, end: Alignment.bottomRight),
+      ),
+      child: const Center(
+        // This is used to center the text
+        child: Text("EcoStride",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 28,
+            )),
+      ),
+    );
+  }
+}
