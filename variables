@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+import 'package:basics/text.dart';
+
+const startAligment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;    // creating variable and storing it
+
+//  we can use var instead of const but
+// if we use var we can reasign the value 
+//thats why final and const is used
+
+class GradientConatiner extends StatelessWidget {
+  // GradientConatiner({key}): super(key: key);
+  const GradientConatiner({super.key});
+  @override
+  Widget build(context) {
+    
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 167, 255, 170),
+          Color.fromARGB(255, 167, 255, 170)
+        ], begin: startAligment, end: endAlignment),    // using variable
+      ),
+      child: const Center(
+          // This is used to center the text
+          child: Textone()),
+    );
+  }
+}
+
+
+
+  // if we don't assigin it earilier
+
+  import 'package:flutter/material.dart';
+import 'package:basics/text.dart';
+
+Alignment? startAligment;
+const endAlignment = Alignment.bottomRight;
+
+//  we can use var instead of const but
+// if we use var we can reasign the value 
+//thats why final and const is used
+
+class GradientConatiner extends StatelessWidget {
+  // GradientConatiner({key}): super(key: key);
+  const GradientConatiner({super.key});
+  @override
+  Widget build(context) {
+    
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 167, 255, 170),
+          Color.fromARGB(255, 167, 255, 170)
+        ], begin: startAligment, end: endAlignment),
+      ),
+      child: const Center(
+          // This is used to center the text
+          child: Textone()),
+    );
+  }
+}
+
+
+  // adding variable inside class
+
+  import 'package:flutter/material.dart';
+
+class Textone extends StatelessWidget {
+  const Textone(this.text, {super.key});
+
+  final String text;
+
+  @override
+  Widget build(context) {
+    return Text(
+      text,
+      style: const TextStyle(
+        color: Colors.black,
+        fontSize: 28,
+      ),
+    );
+  }
+}
+
